@@ -1,0 +1,28 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.example.userservice.entity">
+
+    <class name="User" table="users">
+
+        <!-- Первичный ключ -->
+        <id name="id" column="id" type="long">
+            <generator class="identity"/>
+        </id>
+
+        <!-- Обычные поля -->
+        <property name="name" column="name" type="string" not-null="true"/>
+        <property name="email" column="email" type="string" not-null="true"/>
+        <property name="age" column="age" type="integer" not-null="true"/>
+
+        <!-- Это поле заполняет БД, Hibernate только читает -->
+        <property name="createdAt"
+                  column="created_at"
+                  type="java.time.Instant"
+                  insert="false"
+                  update="false"/>
+
+    </class>
+
+</hibernate-mapping>

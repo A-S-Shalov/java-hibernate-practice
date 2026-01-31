@@ -1,0 +1,28 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Как подключаться к PostgreSQL -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/user_service</property>
+        <property name="hibernate.connection.username">app</property>
+        <property name="hibernate.connection.password">app</property>
+
+        <!-- Под какой SQL “заточить” Hibernate -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- validate = проверять таблицу, но не создавать -->
+        <property name="hibernate.hbm2ddl.auto">validate</property>
+
+        <!-- Можно оставить для наглядности -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Подключаем маппинг User -->
+        <mapping resource="com/example/userservice/entity/User.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>
