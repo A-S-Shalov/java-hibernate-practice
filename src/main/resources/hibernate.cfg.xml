@@ -17,10 +17,6 @@
         <!-- validate = проверять таблицу, но не создавать -->
         <property name="hibernate.hbm2ddl.auto">validate</property>
 
-        <!-- Можно оставить для наглядности -->
-        <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.format_sql">true</property>
-
         <!-- Подключаем маппинг User -->
         <mapping resource="com/example/userservice/entity/User.hbm.xml"/>
 
